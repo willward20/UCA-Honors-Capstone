@@ -1,2 +1,3 @@
 # UCA-Honors-Capstone
-Calibrating a MEMS Accelerometer to Remove Displacement Drift Error. Final repository for my undergraduate honors capstone. University of Central Arkansas, Department of Physics and Astronomy.
+
+In my undergraduate capstone thesis, I investigated methods of calibrating a MEMS accelerometer to improve the accuracy of its acceleration measurements and reduce the amount of drift error in subsequent velocity and displacement calculations. This GitHub repository contains all of the code used to collect and calibrate data and all of the plots generated for my thesis. The capstone was completed in partial fulfillment of the requirements for the University Scholars Program at the University of Central Arkansas. I graduated from UCA with a Bachelor's of Science in Engineering Physics in May 2023. 

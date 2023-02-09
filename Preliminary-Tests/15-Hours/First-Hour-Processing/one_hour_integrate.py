@@ -1,5 +1,4 @@
 ##################################################################
-# 
 # Program Name: one_hour_integrate.py
 # Written by: Will Ward
 #  
@@ -9,7 +8,6 @@
 #     3. Integrate the data over time (for velocity and/or distance) 
 #     4. Plot the integrated data on a graph
 #     5. Save integrated data to a CSV file 
-# 
 ###################################################################
 
 

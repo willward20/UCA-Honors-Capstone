@@ -73,7 +73,7 @@ def accel_mean_std(total_time):
     return data
 
 
-def save_csv(csv_file, true, measured):
+def save_csv(csv_file, measured, true):
 
     # Save true acceleration, mean measured acceleration, and standard deviation to CSV file
 

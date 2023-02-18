@@ -13,46 +13,53 @@ When calibrating with the six-position method, the best error model to use for l
 
 #### Trial 1
 |    Calibration Method Used     | x (mean, stand. dev) | y (mean, stand. dev) | z (mean, stand. dev) |
-| -----------------------------  | -------------------  | -------------------  | -------------------- |
-| Uncalibrated Data              |  (0.9617, 0.0258)    |  (0.6050, 0.0549)    |  (-2.2238, 0.0416)   |     
-| Bias Calibrated                |  (0.0638, 0.0258)    |  (0.1411, 0.0549)    |   (0.2296, 0.0416)   |  
-| Add Scale Factors              |  (0.0638, 0.0258)    |  (0.1411, 0.0549)    |   (0.0140, 0.0407)   |  
-| Add Misalignments              | (-0.0252, 0.0258)    |  (0.0367, 0.0549)    |   (0.0139, 0.0407)   | 
+| :-----------------------------:  | :-------------------:  | :-------------------:  | :--------------------: |
+| Uncalibrated Data   (m/s/s)    |  (0.9617, 0.0258)    |  (0.6050, 0.0549)    |  (-2.2238, 0.0416)   |     
+| Bias Calibrated     (m/s/s)    |  (0.0638, 0.0258)    |  (0.1411, 0.0549)    |   (0.2296, 0.0416)   |  
+| Add Scale Factors   (m/s/s)    |  (0.0638, 0.0258)    |  (0.1411, 0.0549)    |   (0.0140, 0.0407)   |  
+| Add Misalignments   (m/s/s)    | (-0.0252, 0.0258)    |  (0.0367, 0.0549)    |   (0.0139, 0.0407)   | 
   
-Uncalibrated Data (mean, std):  x(0.9617, 0.0258), y(0.6050, 0.0549), z(-2.2238, 0.0416)     (m/s/s)
-Bias Calibrated   (mean, std):  x(0.0638, 0.0258), y(0.1411, 0.0549),  z(0.2296, 0.0416)     (m/s/s)
-Add Scale Factors (mean, std):  x(0.0638, 0.0258), y(0.1411, 0.0549),  z(0.0140, 0.0407)     (m/s/s)
-Add Misalignments (mean, std): x(-0.0252, 0.0258), y(0.0367, 0.0549),  z(0.0139, 0.0407)     (m/s/s)
-
 #### Trial 2
-Uncalibrated Data (mean, std):  x(0.9485, 0.0356), y(0.6009, 0.0530), z(-2.2028, 0.0437)
-Bias Calibrated   (mean, std):  x(0.0573, 0.0356), y(0.1422, 0.0530),  z(0.2411, 0.0437)
-Add Scale Factors (mean, std):  x(0.0573, 0.0356), y(0.1421, 0.0530),  z(0.0261, 0.0427)
-Add Misalignments (mean, std): x(-0.0194, 0.0356), y(0.0355, 0.0529),  z(0.0261, 0.0427)
+|    Calibration Method Used     | x (mean, stand. dev) | y (mean, stand. dev) | z (mean, stand. dev) |
+| :-----------------------------:  | :-------------------:  | :-------------------:  | :--------------------: |
+| Uncalibrated Data (m/s/s)      |  (0.9485, 0.0356)    |  (0.6009, 0.0530)    |  (-2.2028, 0.0437)   |
+| Bias Calibrated   (m/s/s)      |  (0.0573, 0.0356)    |  (0.1422, 0.0530)    |   (0.2411, 0.0437)   |
+| Add Scale Factors (m/s/s)      |  (0.0573, 0.0356)    |  (0.1421, 0.0530)    |   (0.0261, 0.0427)   |
+| Add Misalignments (m/s/s)      | (-0.0194, 0.0356)    |  (0.0355, 0.0529)    |   (0.0261, 0.0427)   |
 
 #### Trial 3
-Uncalibrated Data (mean, std):  x(0.9461, 0.0379), y(0.5946, 0.0481), z(-2.2079, 0.0425)
-Bias Calibrated   (mean, std):  x(0.0621, 0.0379), y(0.1385, 0.0481),  z(0.2248, 0.0425)
-Add Scale Factors (mean, std):  x(0.0621, 0.0379), y(0.1385, 0.0481),  z(0.0056, 0.0416)
-Add Misalignments (mean, std): x(-0.0165, 0.0379), y(0.0335, 0.0482),  z(0.0056, 0.0416)
+|    Calibration Method Used     | x (mean, stand. dev) | y (mean, stand. dev) | z (mean, stand. dev) |
+| :-----------------------------:  | :-------------------:  | :-------------------:  | :--------------------: |
+| Uncalibrated Data (m/s/s)      |  (0.9461, 0.0379)    |  (0.5946, 0.0481)    |  (-2.2079, 0.0425)   |
+| Bias Calibrated   (m/s/s)      |  (0.0621, 0.0379)    |  (0.1385, 0.0481)    |   (0.2248, 0.0425)   |
+| Add Scale Factors (m/s/s)      |  (0.0621, 0.0379)    |  (0.1385, 0.0481)    |   (0.0056, 0.0416)   |
+| Add Misalignments (m/s/s)      | (-0.0165, 0.0379)    |  (0.0335, 0.0482)    |   (0.0056, 0.0416)   |
 
 
 ### Integrating Test Data Over Time
 
 #### Trial 1
-Uncalibrated Data: x = 1731, y = 1089, z = -4002   (meters)
-Bias Calibrated:   x =  115, y =  254, z =   413   (meters)
-Add Scale Factors: x =  115, y =  254, z =    25   (meters)
-Add Misalignments: x =  -45, y =   66, z =    25   (meters)
+|    Calibration Method Used     | x displacement | y displacement | z displacement |
+| :---------------------------:  | :-----------:  | :-----------:  | :------------: |
+| Uncalibrated Data (m)          |  1731          | 1089           | -4002          |
+| Bias Calibrated (m)            |   115          |  254           |   413          |
+| Add Scale Factors (m)          |   115          |  254           |    25          |
+| Add Misalignments (m)          |   -45          |   66           |    25          |
 
 #### Trial 2
-Uncalibrated Data: x = 1707, y = 1081, z = -3965
-Bias Calibrated:   x =  103, y =  255, z =   433
-Add Scale Factors: x =  103, y =  255, z =    47
-Add Misalignments: x =  -35, y =   63, z =    47
+|    Calibration Method Used     | x displacement | y displacement | z displacement |
+| :---------------------------:  | :-----------:  | :-----------:  | :------------: |
+| Uncalibrated Data (m)          |  1707          | 1081           | -3965          |
+| Bias Calibrated (m)            |   103          |  255           |   433          |
+| Add Scale Factors (m)          |   103          |  255           |    47          |
+| Add Misalignments (m)          |   -35          |   63           |    47          |
 
 #### Trial 3
-Uncalibrated Data: x = 1704, y = 1072, z = -3974
-Bias Calibrated:   x =  113, y =  251, z =   404
-Add Scale Factors: x =  113, y =  251, z =    10
-Add Misalignments: x =  -29, y =   62, z =    10
+|    Calibration Method Used     | x displacement | y displacement | z displacement |
+| :---------------------------:  | :-----------:  | :-----------:  | :------------: |
+| Uncalibrated Data (m)          |  1704          | 1072           | -3974          |
+| Bias Calibrated (m)            |   113          |  251           |   404          |
+| Add Scale Factors (m)          |   113          |  251           |    10          |
+| Add Misalignments (m)          |   -29          |   62           |    10          |
+
+

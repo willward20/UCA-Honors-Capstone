@@ -43,7 +43,7 @@ def misalignment_model(true_accel, bias, s1, s2, s3):
 if __name__ == '__main__':
 
     # Read data from CSV file
-    file = open("data/trial_1/six_position_data_1.csv") 
+    file = open("data/trial_3/six_position_data_3.csv") 
     read_data = np.loadtxt(file, skiprows = 1, delimiter=",", dtype=float) 
     
     # Divide data into seperate arrays
@@ -98,9 +98,26 @@ if __name__ == '__main__':
     print(b_z3, Szz3, Szx3, Szy3)
     
     
-    exit() # don't graph or save csv
+    #exit()
 
+
+    #############################
+    # Save Parameters to CSV File
+    #############################
     
+    file = open('optim_params_3.csv', 'a') # name csv after calibration trial and axis
+    file.write('Accelerometer Model Parameters Optimized - Trial 3.\n')
+    file.write('b_x, b_y, b_z, Sxx, Sxy, Sxz, Syx, Syy, Syz, Szx, Szy, Szz \n')
+    file.write(str(b_x1) + ',' + str(b_y1) + ',' + str(b_z1) + '\n')
+    file.write(str(b_x2) + ',' + str(b_y2) + ',' + str(b_z2) + ',' + str(Sxx2) + ',' + str(Syy2) + ',' + str(Szz2) + '\n')
+    file.write(str(b_x3) + ',' + str(b_y3) + ',' + str(b_z3) + ',' + str(Sxx3) + ',' + str(Sxy3) + ',' + str(Sxz3) + ',' +
+                                                                     str(Syx3) + ',' + str(Syy3) + ',' + str(Syz3) + ',' + 
+                                                                     str(Szx3) + ',' + str(Szy3) + ',' + str(Szz3) + '\n')
+    file.close()
+
+
+    exit()
+
     ########################################
     # Graph x, y, and z data with trend fit.
     ########################################
@@ -123,17 +140,4 @@ if __name__ == '__main__':
     
 
     
-    
-    #############################
-    # Save Parameters to CSV File
-    #############################
-    
-    file = open('optim_params_3.csv', 'a') # name csv after calibration trial and axis
-    file.write('Accelerometer Model Parameters Optimized - Trial 3.\n')
-    file.write('b_x, b_y, b_z, Sxx, Syy, Szz, Sxy, Sxz, Syx, Syz, Szx, Szy \n')
-    file.write(str(b_x1) + ',' + str(b_y1) + ',' + str(b_z1) + '\n')
-    file.write(str(b_x2) + ',' + str(b_y2) + ',' + str(b_z2) + ',' + str(Sxx2) + ',' + str(Syy2) + ',' + str(Szz2) + '\n')
-    file.write(str(b_x3) + ',' + str(b_y3) + ',' + str(b_z3) + ',' + str(Sxx3) + ',' + str(Syy3) + ',' + str(Szz3) + ',' +
-               str(Sxy3) + ',' + str(Sxz3) + ',' + str(Syx3) + ',' + str(Syz3) + ',' + str(Szx3) + ',' + str(Szy3) + '\n')
-    file.close()
     

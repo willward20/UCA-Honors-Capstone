@@ -12,6 +12,13 @@ When calibrating with the six-position method, the best error model to use for l
 **Notice how after calibrating with misalignements, in every trial the standard deviation (uncertaitny in one acceleration measurement) is now larger than the mean of the data.** This might have a significant impact on displacement drift, due to high oscillation. ***I'm curious how much the displacment error would improve if noise was removed.***
 
 #### Trial 1
+|    Calibration Method Used     | x (mean, stand. dev) | y (mean, stand. dev) | z (mean, stand. dev) |
+| -----------------------------  | -------------------  | -------------------  | -------------------- |
+| Uncalibrated Data              |  (0.9617, 0.0258)    |  (0.6050, 0.0549)    |  (-2.2238, 0.0416)   |     
+| Bias Calibrated                |  (0.0638, 0.0258)    |  (0.1411, 0.0549)    |   (0.2296, 0.0416)   |  
+| Add Scale Factors              |  (0.0638, 0.0258)    |  (0.1411, 0.0549)    |   (0.0140, 0.0407)   |  
+| Add Misalignments              | (-0.0252, 0.0258)    |  (0.0367, 0.0549)    |   (0.0139, 0.0407)   | 
+  
 Uncalibrated Data (mean, std):  x(0.9617, 0.0258), y(0.6050, 0.0549), z(-2.2238, 0.0416)     (m/s/s)
 Bias Calibrated   (mean, std):  x(0.0638, 0.0258), y(0.1411, 0.0549),  z(0.2296, 0.0416)     (m/s/s)
 Add Scale Factors (mean, std):  x(0.0638, 0.0258), y(0.1411, 0.0549),  z(0.0140, 0.0407)     (m/s/s)

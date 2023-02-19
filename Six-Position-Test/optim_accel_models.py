@@ -1,18 +1,22 @@
-##################################################################
-# Program Name: optim_accel_models.py
-# Written by: Will Ward
-# 
-# Optimize parameters in three accelerometer output models to fit
-# the six-position data. Save the model parameters to a CSV file.  
-# Use least-squares fitting (scipy.optimize.curve_fit)
-#
+###############################################################################
+# Script Name: optim_accel_models.py
+# Written by: Will Ward (willward20)
+
+# Python script for optimizing the parameters in three fitting equations 
+# that attempt to model measurements collected by an accelerometer.
+
+# scipy.optimize.curve_fit() is used to fit each equation to collected 
+# acceleration data. Data includes true measurements and ground truth labels.
+
+# The optimized parameters are saved to a CSV file for later use. 
+
 # Function:
-#     1. Load raw acceleration data from CSV file
+#     1. Load acceleration data from CSV file
 #     2. Optimize parameters in model one
 #     3. Optimize parameters in model two 
 #     4. Optimize parameters in model three
 #     5. Graph data and save params to CSV 
-###################################################################
+#################################################################################
 
 
 import sys
@@ -22,17 +26,20 @@ from scipy.optimize import curve_fit
 import matplotlib.pyplot as plt
 
 
-def bias_model(true_accel, bias):
+def bias_model(
+        true_accel, bias):
     # Acceleromet Output Model -- Bias Only
     # measured_accel = true_accel + bias
     return (true_accel + bias) # equals measured accel
 
-def scale_factor_model(true_accel, bias, scale_factor):
+def scale_factor_model(
+        true_accel, bias, scale_factor):
     # Accelerometer Output Model -- Bias and Scale Factor Vector
     # measured_accel = scale_factor * true_accel + bias
     return (scale_factor * true_accel + bias) # equals measured accel
 
-def misalignment_model(true_accel, bias, s1, s2, s3):
+def misalignment_model(
+        true_accel, bias, s1, s2, s3):
     # Accelerometer Output Model -- Bias and Scale Factor Matrix (includes misalignment)
     # measured_accel = scale_factor_matrix * true_accel + bias
     return (true_accel[0]*s1 + true_accel[1]*s2 + true_accel[2]*s3 + bias)
@@ -98,7 +105,7 @@ if __name__ == '__main__':
     print(b_z3, Szz3, Szx3, Szy3)
     
     
-    #exit()
+    exit()
 
 
     #############################

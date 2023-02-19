@@ -13,7 +13,7 @@ When calibrating with the six-position method, the best error model to use for l
 
 #### Trial 1
 |    Calibration Method Used     | x (mean, stand. dev) | y (mean, stand. dev) | z (mean, stand. dev) |
-| :-----------------------------:  | :-------------------:  | :-------------------:  | :--------------------: |
+| :---------------------------:  | :-----------------:  | :-----------------:  | :------------------: |
 | Uncalibrated Data   (m/s/s)    |  (0.9617, 0.0258)    |  (0.6050, 0.0549)    |  (-2.2238, 0.0416)   |     
 | Bias Calibrated     (m/s/s)    |  (0.0638, 0.0258)    |  (0.1411, 0.0549)    |   (0.2296, 0.0416)   |  
 | Add Scale Factors   (m/s/s)    |  (0.0638, 0.0258)    |  (0.1411, 0.0549)    |   (0.0140, 0.0407)   |  
@@ -21,7 +21,7 @@ When calibrating with the six-position method, the best error model to use for l
   
 #### Trial 2
 |    Calibration Method Used     | x (mean, stand. dev) | y (mean, stand. dev) | z (mean, stand. dev) |
-| :-----------------------------:  | :-------------------:  | :-------------------:  | :--------------------: |
+| :---------------------------:  | :-----------------:  | :-----------------:  | :------------------: |
 | Uncalibrated Data (m/s/s)      |  (0.9485, 0.0356)    |  (0.6009, 0.0530)    |  (-2.2028, 0.0437)   |
 | Bias Calibrated   (m/s/s)      |  (0.0573, 0.0356)    |  (0.1422, 0.0530)    |   (0.2411, 0.0437)   |
 | Add Scale Factors (m/s/s)      |  (0.0573, 0.0356)    |  (0.1421, 0.0530)    |   (0.0261, 0.0427)   |
@@ -29,7 +29,7 @@ When calibrating with the six-position method, the best error model to use for l
 
 #### Trial 3
 |    Calibration Method Used     | x (mean, stand. dev) | y (mean, stand. dev) | z (mean, stand. dev) |
-| :-----------------------------:  | :-------------------:  | :-------------------:  | :--------------------: |
+| :---------------------------:  | :-----------------:  | :-----------------:  | :------------------: |
 | Uncalibrated Data (m/s/s)      |  (0.9461, 0.0379)    |  (0.5946, 0.0481)    |  (-2.2079, 0.0425)   |
 | Bias Calibrated   (m/s/s)      |  (0.0621, 0.0379)    |  (0.1385, 0.0481)    |   (0.2248, 0.0425)   |
 | Add Scale Factors (m/s/s)      |  (0.0621, 0.0379)    |  (0.1385, 0.0481)    |   (0.0056, 0.0416)   |

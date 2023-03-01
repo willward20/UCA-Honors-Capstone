@@ -45,6 +45,8 @@ def graph_data(x, y, z, x_std, y_std, z_std, TITLE, FILENAME):
 
 if __name__ == '__main__':
     
+    # Look at each minute individually
+
     x_means = []
     y_means = []
     z_means = []
@@ -64,13 +66,13 @@ if __name__ == '__main__':
         x_means.append(np.mean(x_accels))
         y_means.append(np.mean(y_accels))
         z_means.append(np.mean(z_accels))
-        x_std_devs.append(np.std(x_accels))
-        y_std_devs.append(np.std(y_accels))
-        z_std_devs.append(np.std(z_accels))
+        x_std_devs.append(np.std(x_accels)) # standard deviation of each minute (uncertaitny in one measurement in the array)
+        y_std_devs.append(np.std(y_accels)) # CAN'T USE THIS FOR SDOM BECAUSE IT DOES NOT ACCOUNT FOR SYSTEMATIC UNCERTAINTY
+        z_std_devs.append(np.std(z_accels)) # AMONG ALL THE MEANS
     
     #for ii in range (0,3):
-    print("X mean mean: ", np.mean(x_means))
-    print("X mean std_dev: ", np.std(x_means))
+    print("X mean mean: ", np.mean(x_means)) # mean of the array of means
+    print("X mean std_dev: ", np.std(x_means)) # standard deviation of the array of means (uncertainty in one mean measurement)
     print("Y mean mean: ", np.mean(y_means))
     print("Y mean std_dev: ", np.std(y_means))
     print("Z mean mean: ", np.mean(z_means))
@@ -78,5 +80,5 @@ if __name__ == '__main__':
 
     #graph_data(x_means, y_means, z_means, TITLE="Mean (g) of Each One Minute Trial", FILENAME="means_over_trials.png")
     #graph_data(x_std_devs, y_std_devs, z_std_devs, TITLE="Standard Deviations (g) of Each One Minute Trial", FILENAME="std_over_trials.png")
-
-
+    #graph_data(x_means, y_means, z_means, np.std(x_means), np.std(y_means), np.std(z_means),
+    #                    TITLE="Mean (g) of Each One Minute Trial with Uncertainty", FILENAME="means_over_trials_w_uncertainty.png")

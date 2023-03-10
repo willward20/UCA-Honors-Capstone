@@ -56,7 +56,7 @@ if __name__ == '__main__':
     print("Total Time (minutes): ", time_array[-1]/60)
     print("Frequency (Hz): ", len(x_accels)/(time_array[-1]))
 
-    print("Means: ", np.mean(x_accels)*9.80665, " ", np.mean(y_accels)*9.80665, " ", np.mean(z_accels)*9.80665)
+    print("Means: ", np.mean(x_accels)*9.797, " ", np.mean(y_accels)*9.797, " ", np.mean(z_accels)*9.797)
 
     # center the data around zero g by subtracting the mean
     x_accels -= np.mean(x_accels)
@@ -64,9 +64,9 @@ if __name__ == '__main__':
     z_accels -= np.mean(z_accels)
 
     # convert from g to m/s/s
-    x_accels *= 9.80665
-    y_accels *= 9.80665
-    z_accels *= 9.80665
+    x_accels *= 9.797
+    y_accels *= 9.797
+    z_accels *= 9.797
 
     
 

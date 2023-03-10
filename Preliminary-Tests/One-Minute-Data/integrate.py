@@ -55,12 +55,13 @@ if __name__ == '__main__':
     time_array = read_data[:, 0]
     x_accels = read_data[:, 1]
     y_accels = read_data[:, 2]
-    z_accels = read_data[:, 3] - 1 # remove gravity 
+    z_accels = read_data[:, 3] 
 
     # convert from g to m/s/s
-    x_accels *= 9.80665
-    y_accels *= 9.80665
-    z_accels *= 9.80665
+    x_accels *= 9.797
+    y_accels *= 9.797
+    z_accels *= 9.797
+    z_accels -= 9.797
 
     # Integrate the raw data
     x_time, x_vel, x_dis = integrate_data(time_array, x_accels)

@@ -59,9 +59,9 @@ if __name__ == '__main__':
         file = open('Data/start_up_data_'+str(ii)+'.csv')
         read_data = np.loadtxt(file, skiprows = 1, delimiter=",", dtype=float)
         time_array = read_data[:, 0] # seperate data into arays
-        x_accels = read_data[:, 1]
-        y_accels = read_data[:, 2]
-        z_accels = read_data[:, 3]
+        x_accels = read_data[:, 1] * 9.797
+        y_accels = read_data[:, 2] * 9.797
+        z_accels = read_data[:, 3] * 9.797
         
         x_means.append(np.mean(x_accels))
         y_means.append(np.mean(y_accels))
@@ -71,14 +71,18 @@ if __name__ == '__main__':
         z_std_devs.append(np.std(z_accels)) # AMONG ALL THE MEANS
     
     #for ii in range (0,3):
-    print("X mean mean: ", np.mean(x_means)) # mean of the array of means
+    print("X mean mean   : ", np.mean(x_means)) # mean of the array of means
     print("X mean std_dev: ", np.std(x_means)) # standard deviation of the array of means (uncertainty in one mean measurement)
-    print("Y mean mean: ", np.mean(y_means))
+    print("Y mean mean   : ", np.mean(y_means))
     print("Y mean std_dev: ", np.std(y_means))
-    print("Z mean mean: ", np.mean(z_means))
+    print("Z mean mean   : ", np.mean(z_means))
     print("Z mean std_dev: ", np.std(z_means))
 
-    #graph_data(x_means, y_means, z_means, TITLE="Mean (g) of Each One Minute Trial", FILENAME="means_over_trials.png")
+    print("max x_SDOM: ", np.mean(x_std_devs)/np.sqrt(10820))
+    print("max y_SDOM: ", np.mean(y_std_devs)/np.sqrt(10820))
+    print("max z_SDOM: ", np.mean(z_std_devs)/np.sqrt(10820))
+
+    #graph_data(x_means, y_means, z_means, 0, 0, 0, TITLE="Mean (m/s/s) of Each One Minute Trial", FILENAME="means_over_trials_m_s_s.png")
     #graph_data(x_std_devs, y_std_devs, z_std_devs, TITLE="Standard Deviations (g) of Each One Minute Trial", FILENAME="std_over_trials.png")
     #graph_data(x_means, y_means, z_means, np.std(x_means), np.std(y_means), np.std(z_means),
     #                    TITLE="Mean (g) of Each One Minute Trial with Uncertainty", FILENAME="means_over_trials_w_uncertainty.png")

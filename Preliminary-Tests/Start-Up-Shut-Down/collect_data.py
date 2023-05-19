@@ -3,8 +3,7 @@
 # Program Name: collect_data.py
 # Written by: Will Ward 
 #  
-# Function:
-#     1. Collect acceleration data from the MPU-9250 IMU 
+# Collect acceleration data from the MPU-9250 IMU 
 # 
 ###################################################################
 

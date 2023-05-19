@@ -32,8 +32,7 @@ else:
 
 
 
-def accel_cal(
-        total_time, FILENAME):
+def accel_cal(total_time, FILENAME):
 
     # Open a CSV file for saving data. Label each column
     file = open(FILENAME, 'a')    # name csv after calibration trial and axis
@@ -54,8 +53,7 @@ def accel_cal(
     return
 
 
-def graph_data(
-        times, x_accels, y_accels, z_accels, TITLE, FILENAME):
+def graph_data(times, x_accels, y_accels, z_accels, TITLE, FILENAME):
 
     # Graph x, y, and z data on seperate plots.
 

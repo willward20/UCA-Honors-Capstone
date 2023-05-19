@@ -26,20 +26,17 @@ from scipy.optimize import curve_fit
 import matplotlib.pyplot as plt
 
 
-def bias_model(
-        true_accel, bias):
+def bias_model(true_accel, bias):
     # Acceleromet Output Model -- Bias Only
     # measured_accel = true_accel + bias
     return (true_accel + bias) # equals measured accel
 
-def scale_factor_model(
-        true_accel, bias, scale_factor):
+def scale_factor_model(true_accel, bias, scale_factor):
     # Accelerometer Output Model -- Bias and Scale Factor Vector
     # measured_accel = scale_factor * true_accel + bias
     return (scale_factor * true_accel + bias) # equals measured accel
 
-def misalignment_model(
-        true_accel, bias, s1, s2, s3):
+def misalignment_model(true_accel, bias, s1, s2, s3):
     # Accelerometer Output Model -- Bias and Scale Factor Matrix (includes misalignment)
     # measured_accel = scale_factor_matrix * true_accel + bias
     return (true_accel[0]*s1 + true_accel[1]*s2 + true_accel[2]*s3 + bias)
@@ -50,13 +47,13 @@ def misalignment_model(
 if __name__ == '__main__':
 
     # Read data from CSV file
-    file = open("data/trial_3/six_position_data_3.csv") 
+    file = open("data/trial_1/six_position_data_1.csv") 
     read_data = np.loadtxt(file, skiprows = 1, delimiter=",", dtype=float) 
     
     # Divide data into seperate arrays
     x_true = read_data[:, 0]  # true x acceleration (gravity)
     x_mean = read_data[:, 1]  # mean x measured acceleration
-    x_std  = read_data[:, 2]  # standard deviation of measured x
+    x_std  = read_data[:, 2]  # standard deviation of each meaurement -- NOT the SDOM of x_mean!!!!
     y_true = read_data[:, 3]  # y
     y_mean = read_data[:, 4]  # y
     y_std  = read_data[:, 5]  # y
@@ -72,48 +69,60 @@ if __name__ == '__main__':
     ##########################################################
 
     # Optimize Parameters for X
-    params, covar = curve_fit(bias_model, x_true, x_mean)
+    print('X Parameters')
+    params, covar = curve_fit(bias_model, x_true, x_mean, sigma=x_std)
     b_x1 = params.item()
-    print(b_x1)
-    params, covar = curve_fit(scale_factor_model, x_true, x_mean, p0=(b_x1, 1))
+    print("Parameters: ", params, " Uncertainties (%): ", np.sqrt(np.diag(covar))/params * 100) # extract diagonal components (variances) and square them to get std dev
+
+    params, covar = curve_fit(scale_factor_model, x_true, x_mean, p0=(b_x1, 1), sigma=x_std)
     b_x2, Sxx2 = params[0].item(), params[1].item()
-    print(b_x2, Sxx2)
-    params, covar = curve_fit(misalignment_model, true, x_mean, p0=(b_x2, Sxx2, 0, 0))
+    print("Parameters: ", params, " Uncertainties (%): ", np.sqrt(np.diag(covar))/params * 100)
+
+    params, covar = curve_fit(misalignment_model, true, x_mean, p0=(b_x2, Sxx2, 0, 0), sigma=x_std)
     b_x3, Sxx3, Sxy3, Sxz3 = params[0].item(), params[1].item(), params[2].item(), params[3].item()
-    print(b_x3, Sxx3, Sxy3, Sxz3)
+    print("Parameters: ", params, " Uncertainties (%): ", np.sqrt(np.diag(covar))/params * 100) 
+    print('')
+    
 
     # Optimize Parameters for Y
-    params, covar = curve_fit(bias_model, y_true, y_mean)
+    print('Y Parameters')
+    params, covar = curve_fit(bias_model, y_true, y_mean, sigma=y_std)
     b_y1 = params.item()
-    print(b_y1)
-    params, covar = curve_fit(scale_factor_model, y_true, y_mean, p0=(b_y1, 1))
+    print("Parameters: ", params, " Uncertainties (%): ", np.sqrt(np.diag(covar))/params * 100)
+
+    params, covar = curve_fit(scale_factor_model, y_true, y_mean, p0=(b_y1, 1), sigma=y_std)
     b_y2, Syy2 = params[0].item(), params[1].item()
-    print(b_y2, Syy2)
-    params, covar = curve_fit(misalignment_model, true, y_mean, p0=(b_y2, 0, Syy2, 0))
+    print("Parameters: ", params, " Uncertainties (%): ", np.sqrt(np.diag(covar))/params * 100)
+
+    params, covar = curve_fit(misalignment_model, true, y_mean, p0=(b_y2, -0.0039, Syy2, 0.0083), sigma=y_std)
     b_y3, Syx3, Syy3, Syz3 = params[0].item(), params[1].item(), params[2].item(), params[3].item()
-    print(b_y3, Syy3, Syx3, Syz3)
+    print("Parameters: ", params, " Uncertainties (%): ", np.sqrt(np.diag(covar))/params * 100) 
+    print('')
+
 
     # Optimize Parameters for Z
-    params, covar = curve_fit(bias_model, z_true, z_mean)
+    print('Z Parameters')
+    params, covar = curve_fit(bias_model, z_true, z_mean, sigma=z_std)
     b_z1 = params.item()
-    print(b_z1)
-    params, covar = curve_fit(scale_factor_model, z_true, z_mean, p0=(b_z1, 1))
+    print("Parameters: ", params, " Uncertainties (%): ", np.sqrt(np.diag(covar))/params * 100)
+
+    params, covar = curve_fit(scale_factor_model, z_true, z_mean, p0=(b_z1, 1), sigma=z_std)
     b_z2, Szz2 = params[0].item(), params[1].item()
-    print(b_z2, Szz2)
-    params, covar = curve_fit(misalignment_model, true, z_mean, p0=(b_z2, 0, 0, Szz2))
+    print("Parameters: ", params, " Uncertainties (%): ", np.sqrt(np.diag(covar))/params * 100) 
+
+    params, covar = curve_fit(misalignment_model, true, z_mean, p0=(b_z2, -0.0089, -0.0048, Szz2), sigma=z_std)
     b_z3, Szx3, Szy3, Szz3 = params[0].item(), params[1].item(), params[2].item(), params[3].item()
-    print(b_z3, Szz3, Szx3, Szy3)
-    
-    
-    exit()
+    print("Parameters: ", params, " Uncertainties (%): ", np.sqrt(np.diag(covar))/params * 100)
 
+    
 
+    
     #############################
     # Save Parameters to CSV File
     #############################
     
-    file = open('optim_params_3.csv', 'a') # name csv after calibration trial and axis
-    file.write('Accelerometer Model Parameters Optimized - Trial 3.\n')
+    file = open('NAME.csv', 'a') # name csv after calibration trial and axis
+    file.write('Accelerometer Model Parameters Optimized\n')
     file.write('b_x, b_y, b_z, Sxx, Sxy, Sxz, Syx, Syy, Syz, Szx, Szy, Szz \n')
     file.write(str(b_x1) + ',' + str(b_y1) + ',' + str(b_z1) + '\n')
     file.write(str(b_x2) + ',' + str(b_y2) + ',' + str(b_z2) + ',' + str(Sxx2) + ',' + str(Syy2) + ',' + str(Szz2) + '\n')
@@ -121,9 +130,9 @@ if __name__ == '__main__':
                                                                      str(Syx3) + ',' + str(Syy3) + ',' + str(Syz3) + ',' + 
                                                                      str(Szx3) + ',' + str(Szy3) + ',' + str(Szz3) + '\n')
     file.close()
+    
 
-
-    exit()
+    
 
     ########################################
     # Graph x, y, and z data with trend fit.
@@ -141,9 +150,9 @@ if __name__ == '__main__':
     axs.set_ylabel('Measured Gravity [g]')
     axs.set_xlabel('True Gravity [g]')
     #axs.set_ylim([-2,2])
-    axs.set_title("Six-Position Calibration Data - Trial 3")
+    axs.set_title("Six-Position Calibration Data")
     axs.legend()
-    fig.savefig("six_position_optim_3.jpg")
+    fig.savefig("NAME.jpg")
     
 
     

@@ -22,24 +22,21 @@ from scipy.integrate import cumtrapz
 
 
 # Model 1
-def bias_model(    
-        measured_accel, bias):
+def bias_model(measured_accel, bias):
     # Acceleromet Output Model -- Bias Only
     # measured_accel = true_accel + bias
     # true_accel = measured_accel - bias
     return (measured_accel - bias) # equals true accel
 
 # Model 2
-def scale_factor_model(
-        measured_accel, bias, scale_factor):
+def scale_factor_model(measured_accel, bias, scale_factor):
     # Accelerometer Output Model -- Bias and Scale Factor Vector
     # measured_accel = scale_factor * true_accel + bias
     # true_accel = (measured_accel - bias) / scale_factor
     return ((measured_accel - bias) / scale_factor) # equals true accel
 
 # Model 3
-def misalignment_model(
-        measured_accel, bias, scale_f_matrix):
+def misalignment_model(measured_accel, bias, scale_f_matrix):
     # Accelerometer Output Model -- Bias and Scale Factor Matrix (includes misalignment)
     # measured_accel = true_accel*scale_f_matrix + bias
     # true_accel = (measured_accel - bias)*(scale_f_matrix)^-1
@@ -52,8 +49,7 @@ def misalignment_model(
 
 
 
-def integrate_data(
-        times, acceleration):
+def integrate_data(times, acceleration):
 
     # Split up each axis
     a_x = acceleration[:,0]
@@ -73,8 +69,7 @@ def integrate_data(
 
 
 
-def graph_data(
-        times, x, y, z, Y_AXIS, TITLE, FILENAME):   
+def graph_data(times, x, y, z, Y_AXIS, TITLE, FILENAME):   
     
     # Graph x, y, and z data on one plot. Each axis gets its own time value, in case data was filtered
 
@@ -120,20 +115,20 @@ if __name__ == '__main__':
     scale_f_3 = (np.array([param_data[2, 3:6],    # extract optimized scale factors, including misalignments
                            param_data[2, 6:9],
                            param_data[2, 9:]])).T
-    accel_calib_3 = misalignment_model(accels, bias_3, scale_f_3)    # calibrat using Model 3
-
+    accel_calib_3 = misalignment_model(accels, bias_3, scale_f_3)    # calibrat eusing Model 3
+    
 
     # Convert from units of g to m/s/s
-    accels = accels * 9.80665
-    accel_calib_1 = accel_calib_1 * 9.80665
-    accel_calib_2 = accel_calib_2 * 9.80665
-    accel_calib_3 = accel_calib_3 * 9.80665
+    accels = accels * 9.797
+    accel_calib_1 = accel_calib_1 * 9.797 
+    accel_calib_2 = accel_calib_2 * 9.797 
+    accel_calib_3 = accel_calib_3 * 9.797 
 
     # Remove gravity from the z data (facing up)
-    accels[:,2] = accels[:,2] - 9.80665
-    accel_calib_1[:,2] = accel_calib_1[:,2] - 9.80665
-    accel_calib_2[:,2] = accel_calib_2[:,2] - 9.80665
-    accel_calib_3[:,2] = accel_calib_3[:,2] - 9.80665
+    accels[:,2] = accels[:,2] - 9.797 
+    accel_calib_1[:,2] = accel_calib_1[:,2] - 9.797 
+    accel_calib_2[:,2] = accel_calib_2[:,2] - 9.797 
+    accel_calib_3[:,2] = accel_calib_3[:,2] - 9.797 
 
     
     # Statistical analysis
@@ -163,12 +158,12 @@ if __name__ == '__main__':
     print(f"Add Misalignments: {cal_dis_x_3[-1]:0.0f}, {cal_dis_y_3[-1]:0.0f}, {cal_dis_z_3[-1]:0.0f}")
 
     
-    exit()
+    
 
     # Graph the displacement over time of each axis after calibrating with misalignments (model 3)
     y_axis_label = "Displacement (m)"
-    title = "Trial 3 Displacement (m) - After Calibrating with Misalignments Included"
-    image_file_name = "displacement_misalignment_3.png"
+    title = "Displacement (m) - After Calibrating with Misalignment Model"
+    image_file_name = "displacement_misalignment.png"
     graph_data(time_array, cal_dis_x_3, cal_dis_y_3, cal_dis_z_3, Y_AXIS=y_axis_label, TITLE=title, FILENAME=image_file_name)
     
     

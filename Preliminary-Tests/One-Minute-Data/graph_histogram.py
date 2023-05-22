@@ -1,7 +1,5 @@
-"""
-This program collects data from the MPU-9250 accelerometer.
 
-"""
+# This script opens collected data and plots in histogram
 
 # wait 5-sec for IMU to connect
 import sys

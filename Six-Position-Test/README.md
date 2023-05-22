@@ -1,9 +1,9 @@
 # Six-Position Calibration Method
 
-(Describe this method of collecting data and calibrating. Point out what each of the scripts do.)
+For trials 1-3, only the accelerometer data is calibrated. In the final trial, both the acceleration and calculated displacement data are calibrated using optimized models. The information below discusses Trials 1-3. See Thesis.pdf in the main repo for more information about how the final trial compares to 1-3. The process is very similar, but the results are much better.
 
 ### Statistical Analysis
-Each trial test data (taken after collecting parameter fitting data) is calibrated using the parameters derived from the respective trial. (Test data from Trial 1 is calibrated using parameters derived from Trial 1, and the same is true for Trial 2 and Trial 3. The test data is calibrated using each of the three error models to compare their performances. After calibrating, the mean and standard deviation of the datasets (including the raw, uncalibrated data) are derived. The results are shown below. 
+Each trial test data (taken after collecting parameter fitting data) is calibrated using the parameters derived from the respective trial. Test data from Trial 1 is calibrated using parameters derived from Trial 1, and the same is true for Trial 2 and Trial 3. The test data is calibrated using each of the three error models to compare their performances. After calibrating, the mean and standard deviation of the datasets (including the raw, uncalibrated data) are derived. The results are shown below. 
 
 Since the data was taken at rest, we expect the mean acceleration of each axis to be zero (after gravity is removed from the z-axis). In every trial, the error in the mean decreased after calibrating with the bias-only accelerometer model. For the x and y axis, calibrating next with bias and scale factor did not noticeably improve the mean, but it significantly improved the error in the z-axis (by at least a factor of 10). Finally, when data was calibrated using the model with bias, scale factor, and misalignment, the mean of the x and y axis decreased closer to zero, while the z axis was mostly unaffected. 
 

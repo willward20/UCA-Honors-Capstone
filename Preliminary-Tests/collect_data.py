@@ -1,9 +1,7 @@
-##################################################################
+##################################################
 # Script Name: collect_data.py
-# Written by: Will Ward (willward20)
-#  
-# Python script for colleting acceleration data from an MPU-9250 IMU.
-###################################################################
+# Collects acceleration data from an MPU-9250 IMU.
+##################################################
 
 
 import time,sys

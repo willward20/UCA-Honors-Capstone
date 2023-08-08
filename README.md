@@ -1,6 +1,6 @@
 # Investigating MEMS Accelerometer Calibration Techniques
 
-<img src="https://github.com/willward20/UCA-Honors-Capstone/blob/main/media/connections.jpg" width="225" align="left"/> <img src="https://github.com/willward20/UCA-Honors-Capstone/blob/main/media/Final%20Displacement1024_1.jpg" width="250" /> <img src="https://github.com/willward20/UCA-Honors-Capstone/blob/main/media/IMU_axes.png" width="230" /> 
+<img src="https://github.com/willward20/UCA-Honors-Capstone/blob/main/media/connections.jpg" width="245" align="left"/> <img src="https://github.com/willward20/UCA-Honors-Capstone/blob/main/media/Final%20Displacement1024_1.jpg" width="270" /> <img src="https://github.com/willward20/UCA-Honors-Capstone/blob/main/media/IMU_axes.png" width="250" /> 
 
 ### Summary
 

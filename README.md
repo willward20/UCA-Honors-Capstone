@@ -30,4 +30,6 @@ on removing systematic error from acceleration signals.
 
 The [Best-Calibration-Method](https://github.com/willward20/UCA-Honors-Capstone/tree/main/Best-Calibration-Method) folder contains the three programs needed to implement the most successful calibration method I used. In my analysis, I found that a calibration method that removes bias from both the acceleration and displacement data performed better than a calibration method that only removes acceleration bias. The [Preliminary-Tests](https://github.com/willward20/UCA-Honors-Capstone/tree/main/Preliminary-Tests) folder contains code and data of my preliminary tests. These tests were used to ensure that accelerometer calibration was feasible. Finally, the [Six-Position-Test](https://github.com/willward20/UCA-Honors-Capstone/tree/main/Six-Position-Test) folder contains the code and data from my initial calibration experiments. 
 
+### About
+
 This capstone project was completed to fulfill my undergraduate thesis requirement for the [University Scholars Program](https://uca.edu/honors/usp/) at the University of Central Arkansas. I graduated from UCA with a Bachelor's of Science in [Engineering Physics](https://uca.edu/physics/engineering-physics/) in May 2023. 

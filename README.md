@@ -1,8 +1,14 @@
-# UCA-Honors-Capstone
+# Investigating MEMS Accelerometer Calibration Techniques
 
-For my undergradaute honors thesis, I investigated calibrating a MEMS accelerometer using six-position data collection to improve the sensor's measurements. This GitHub repository contains all of the code used to collect and calibrate data using an MPU-9250 accelerometer and a Raspberry Pi 4. Overall, the method used to calibrate the sensor signifcantly reduced the amount of drift in displacement calculations over a 60 second period, even though error in acceleration measurements will always exist. For a complete analysis of the project results, a PDF of my thesis is included in this repository. The capstone was completed in partial fulfillment of the requirements for the University Scholars Program at the University of Central Arkansas. I graduated from UCA with a Bachelor's of Science in Engineering Physics in May 2023. 
+<img src="https://github.com/willward20/UCA-Honors-Capstone/blob/main/media/connections.jpg" width="270" align="left"/> <img src="https://github.com/willward20/UCA-Honors-Capstone/blob/main/media/Final%20Displacement1024_1.jpg" width="250" /> <img src="https://github.com/willward20/UCA-Honors-Capstone/blob/main/media/IMU_axes.png" width="230" /> <img src="https://github.com/willward20/UCA-Honors-Capstone/blob/main/media/USP_Seal_300.png" width="200" align="right"/> 
 
-**Abstract**: Triaxial microelectromechanical systems (MEMS) accelerometers are inertial sensors
+### Summary
+
+Collect and calibrate linear acceleration data from an MPU-9250 accelerometer using a Raspberry Pi and simple python scripts. Use the calibrated acceleration to estimate the change in position of the sensor over time. 
+
+### Abstract
+
+Triaxial microelectromechanical systems (MEMS) accelerometers are inertial sensors
 that measure linear acceleration along three orthogonal axes. In many robotics applications,
 accelerometers help track a robot’s relative displacement. However, displacement estimates
 derived from an accelerometer’s raw measurements drift significantly over time from ground
@@ -13,6 +19,15 @@ essential, especially for very low-cost applications. This study investigates me
 calibrating a low-cost MEMS accelerometer using least-squares fitting, primarily concentrated
 on removing systematic error from acceleration signals.
 
-# Contents
+### Contents
 
-The Preliminary-Tests and Six-Position-Test folders contain all of the code used to collect calibration testing data during the project. The folders also contain all plots generated for my thesis document (Thesis.pdf). In my analysis, I found that a calibration method that removes bias from both the acceleration and displacement data performed better than the other methods I tested. The Best-Calibration-Method folder contains the code used in implementing this method.
+[Thesis.pdf](https://github.com/willward20/UCA-Honors-Capstone/blob/main/Thesis.pdf) is a PDF of my written thesis, which includes information about the project background, experimental methodology, data analysis, and conclusions.
+* **Chapter 1:** Background information about accelerometers, linear displacement estimates, and the need for calibration
+* **Chapter 2:** Literature review of calibration techniques including error modeling, least-squares optimization, and data collection procedures
+* **Chapter 3:** Methodology, including hardware and software setup, preliminary tests performed, statistical analysis, data collection procedures, and calibration procedures
+* **Chapter 4:** Results and analysis
+* **Chapter 5:** Project conclusions and error analysis
+
+The [Best-Calibration-Method](https://github.com/willward20/UCA-Honors-Capstone/tree/main/Best-Calibration-Method) folder contains the three programs needed to implement the most successful calibration method I used. In my analysis, I found that a calibration method that removes bias from both the acceleration and displacement data performed better than a calibration method that only removes acceleration bias. The [Preliminary-Tests](https://github.com/willward20/UCA-Honors-Capstone/tree/main/Preliminary-Tests) folder contains code and data of my preliminary tests. These tests were used to ensure that accelerometer calibration was feasible. Finally, the [Six-Position-Test](https://github.com/willward20/UCA-Honors-Capstone/tree/main/Six-Position-Test) folder contains the code and data from my initial calibration experiments. 
+
+This capstone project was completed to fulfill my undergraduate thesis requirement for the [University Scholars Program](https://uca.edu/honors/usp/) at the University of Central Arkansas. I graduated from UCA with a Bachelor's of Science in [Engineering Physics](https://uca.edu/physics/engineering-physics/) in May 2023. 
